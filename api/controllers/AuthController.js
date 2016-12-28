@@ -14,7 +14,6 @@ module.exports = {
         shortcuts: false,
         rest: false
     },
-
     login: function(req, res) {
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
@@ -30,7 +29,6 @@ module.exports = {
             });
         })(req, res);
     },
-
     logout: function(req, res) {
         req.logout();
         res.redirect('/login');
