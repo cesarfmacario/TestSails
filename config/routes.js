@@ -36,7 +36,7 @@ module.exports.routes = {
 
   '/logout': 'AuthController.logout',
 
-  '/': 'MainController.mainpage',
+  'GET /': 'MainController.mainpage',
 
   'GET /login': {
     view: 'auth/login'

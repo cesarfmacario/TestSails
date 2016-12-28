@@ -32,12 +32,12 @@
       		<nav class="header-nav">
       		  <ul class="header-nav-ul">
               <li class="ul-li"><a href="/" class="link1">Home</a></li>
+              <li class="ul-li"><a href="/user" class="link1">Usuarios</a></li>
               <% if(!req.user){ %>
               <li class="ul-li"><a href="/user/create" class="link1">Signup now</a></li>
               <li class="ul-li"><a href="/login" class="link1">Login</a></li>
               <% } else { %>
-              <li class="ul-li"><a href="/user" class="link1">Usuarios</a></li>
-              <li class="ul-li"><a href="/user/<%= req.user.id  %>" class="link1"><%= req.user.email %></a></li>
+              <li class="ul-li"><a href="/user/<%= req.user.email  %>" class="link1"><%= req.user.email %></a></li>
               <li class="ul-li"><a href="/logout" class="link1">Logout</a></li>
               <% } %>
             </ul>

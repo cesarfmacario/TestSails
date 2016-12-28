@@ -29,22 +29,19 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   
-  /*localDiskDb: {
-    adapter: 'sails-disk'
-  },*/
-/*
-  someMysqlServer: {
-     adapter: 'sails-mysql',
-     host: 'localhost',
-     user: 'root', //optional
-     password: 'checha55', //optional
-     database: 'users' //optional
-  },  
-*/
   localDiskDb: {
     adapter: 'sails-disk'
   },
+  mongodb: {
+    adapter: 'sails-mongo',
+    host: 'localhost',
+    port: 27017,
+    database: 'testMongo', //optional
+    charset: 'utf8',
+    collation: 'utf8_spanish_ci'
+  }
 
+/*
   mysql: {
     adapter: 'sails-mysql',
     host: 'localhost',
@@ -56,7 +53,7 @@ module.exports.connections = {
     charset: 'utf8',
     collation: 'utf8_spanish_ci'
   },
-
+*/
   /***************************************************************************
   *                                                                          *
   * MySQL is the world's most popular relational database.                   *

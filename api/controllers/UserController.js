@@ -22,30 +22,30 @@ module.exports = {
                 console.log(err)
 				return res.redirect('/user/new');
 			}
-			return res.redirect('/user/');
+			return res.redirect('/user');
         });
     },
     edit: function (req, res) {
-    	if(!req.params.all().id) return res.json(404)
-        User.findOne({ id: req.params.id }, function(err, user) {
+    	if(!req.param('id')) return res.render(404);
+        User.findOne({ id: req.param('id') }, function(err, user) {
             if(err) return res.json({ err: err }, 500);
-            if(!user) return res.json({ user: user }, 404)
+            if(!user) return res.render(404);            
             return res.view({
                 user: user
             });
         })
     },
     saveedit: function (req, res) {
-        User.update({ id: req.params.all().id }, req.params.all(), function userUpdated(err, user) {
-            if(err) return res.json({ err:err }, 500);
-            if(!user) return res.json({ user: user }, 404)
+        User.update({ id: req.param('id') }, req.params.all(), function userUpdated(err, user) {
+            if(err) return res.send({ err:err }, 500);
+            if(!user) return res.send({ user: user }, 404)
             return res.redirect('/user')
         });
     },
     destroy: function (req, res) {
-        User.destroy({ id: req.params.all().id }, function userDestroyed(err, user) {
-            if(err) return res.json({ err:err }, 500);
-            if(!user) return res.json({ user: user }, 404)
+        User.destroy({ id: req.param('id') }, function userDestroyed(err, user) {
+            if(err) return res.send({ err:err }, 500);
+            if(!user) return res.send({ user: user }, 404)
             return res.redirect('/user')
         });
     }

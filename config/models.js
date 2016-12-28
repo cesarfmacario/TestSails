@@ -27,7 +27,7 @@ module.exports.models = {
   * See http://sailsjs.org/#!/documentation/concepts/ORM/model-settings.html  *
   *                                                                          *
   ***************************************************************************/
-    connection: 'mysql',
+    connection: 'mongodb',
     migrate: 'alter'
 
 };
