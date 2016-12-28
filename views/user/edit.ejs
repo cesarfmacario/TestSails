@@ -1,0 +1,16 @@
+<% layout('../layouts/master') -%>
+<div class="form">
+	<h2>Editar: <%= user.firstName %></h2>
+	<form class="form-head" method="POST" action="/user/edit">
+		<input type="hidden" name="id" value="<%= user.id %>">
+		<label class="form-label">First name:</label>
+		<input class="form-text" type="text" name="firstName" placeholder="First name" autofocus value="<%= user.firstName %>">
+		<label class="form-label">Last name:</label>
+		<input class="form-text" type="text" name="lastName" placeholder="Last name" autofocus value="<%= user.lastName %>">
+		<label class="form-label">E-mail:</label>
+		<input class="form-text" type="email" name="email" placeholder="E-mail" autofocus value="<%= user.email %>">
+		<label class="form-label">Password</label>
+		<input class="form-text" type="password" name="password" placeholder="Password">
+		<input class="button" type="submit" value="Guardar">
+	</form>
+</div>
