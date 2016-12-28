@@ -28,7 +28,6 @@ module.exports = {
                 req.session.me = user.id
                 return res.redirect('/')
             });
-
         })(req, res);
     },
 
