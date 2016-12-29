@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <title>
     <% if(!title) { %>
-    Sails JS
+    SailsTwitter
     <% } else {%>
     <%= title %>  
     <% } %>
@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.css">
-    <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/styles.css">
     <!--STYLES END-->
@@ -24,9 +24,8 @@
 	  <header class="col-md-12 header">
       <div class="row">
         <div class="col-md-2 header-info">
-          <label class="col-md-12 header-title">Sails</label>
-          
-          <label class="col-md-12 header-descrip">By NodeJS</label>
+          <label class="col-md-12 header-title">SailsTwitter</label> 
+          <label class="col-md-12 header-descrip">TestSails</label>
         </div>
         <div class="col-md-10 header-items">
       		<nav class="header-nav">
@@ -37,7 +36,7 @@
               <li class="ul-li"><a href="/user/create" class="link1">Signup now</a></li>
               <li class="ul-li"><a href="/login" class="link1">Login</a></li>
               <% } else { %>
-              <li class="ul-li"><a href="/user/<%= req.user.email  %>" class="link1"><%= req.user.email %></a></li>
+              <li class="ul-li"><a href="/user/<%= req.user.id  %>" class="link1"><%= req.user.email %></a></li>
               <li class="ul-li"><a href="/logout" class="link1">Logout</a></li>
               <% } %>
             </ul>

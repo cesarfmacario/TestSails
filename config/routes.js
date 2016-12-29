@@ -32,18 +32,19 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /login': 'AuthController.login',
-
-  '/logout': 'AuthController.logout',
-
+  ///////////  MAIN - TWITTER ROUTES
   'GET /': 'TweetController.mainpage',
 
-  'GET /login': {
-    view: 'auth/login'
-  },
-
+  ///////////  LOGIN ROUTES
+  /*
+  'GET /login': { view: 'auth/login' },
+  'POST /login': 'AuthController.login',
+  'GET /logout': 'AuthController.logout',
+  */
+  
+  ///////////  USER ROUTES
+  'GET /user/create': { view: 'user/new' },
   'POST /user/edit': 'UserController.saveedit',
-
   'POST /user/destroy': 'UserController.destroy'
 
   /***************************************************************************

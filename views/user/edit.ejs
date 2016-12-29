@@ -1,16 +1,28 @@
 <% layout('../layouts/master') -%>
-<div class="form">
-	<h2>Editar: <%= user.firstName %></h2>
-	<form class="form-head" method="POST" action="/user/edit">
-		<input type="hidden" name="id" value="<%= user.id %>">
-		<label class="form-label">First name:</label>
-		<input class="form-text" type="text" name="firstName" placeholder="First name" autofocus value="<%= user.firstName %>">
-		<label class="form-label">Last name:</label>
-		<input class="form-text" type="text" name="lastName" placeholder="Last name" autofocus value="<%= user.lastName %>">
-		<label class="form-label">E-mail:</label>
-		<input class="form-text" type="email" name="email" placeholder="E-mail" autofocus value="<%= user.email %>">
-		<label class="form-label">Password</label>
-		<input class="form-text" type="password" name="password" placeholder="Password">
-		<input class="button" type="submit" value="Guardar">
-	</form>
+<div class="form-container">
+    <form method="POST" action="/user/edit">
+        <div class="form-container-segment">
+            <h2>Editar usuario</h2>
+        </div>
+        <input type="hidden" name="id" value="<%= user.id %>">
+        <div class="form-group">
+            <label>Nombres:</label>
+            <input class="form-control" type="text" name="firstName" placeholder="Nombres" autofocus value="<%= user.firstName %>">
+        </div>
+        <div class="form-group">
+            <label>Apellidos:</label>
+            <input class="form-control" type="text" name="lastName" placeholder="Apellidos" value="<%= user.lastName %>">
+        </div>
+        <div class="form-group">
+            <label>Correo electrónico:</label>
+            <input class="form-control" type="email" name="email" placeholder="E-mail" value="<%= user.email %>">
+        </div>
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-container-segment">
+            <input class="btn btn-default btn-form" type="submit" value="Guardar">
+        </div>
+    </form>
 </div>

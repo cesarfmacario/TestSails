@@ -16,15 +16,11 @@ passport.use(new LocalStrategy({
   }, 
   function(email, password, done) {
     User.findOne({ email: email }, function (err, user) {
-      console.log(err);
-      console.log(user);
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect email.' });
       }
       bcrypt.compare(password, user.password, function (err, res) {
-        console.log(err);
-        console.log(res);
         if (!res)
           return done(null, false, {
             message: 'Invalid Password'
@@ -34,7 +30,6 @@ passport.use(new LocalStrategy({
           createdAt: user.createdAt,
           id: user.id
         };
-        console.log(returnUser);
         return done(null, returnUser, {
           message: 'Logged In Successfully'
         });

@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt');
 module.exports = {    
     attributes: {
         id: {
-            type: 'int',
+            type: 'integer',
             autoIncrement: true,
             primaryKey: true
         },
@@ -30,7 +30,12 @@ module.exports = {
             type: 'string',
             minLength: 6,
             required: true
+        },                       
+        tweets: {
+            collection: 'tweet',
+            via: 'owner'
         },
+
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;

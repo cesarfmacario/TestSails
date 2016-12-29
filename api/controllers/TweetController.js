@@ -7,8 +7,8 @@
 
 module.exports = {
 	mainpage: function(req, res) {
-        if (!req.isAuthenticated) return res.render('main/mainpage', { title: 'Sails', user: null });
-        return res.render('main/mainpage', { title: 'Sails', user: req.user});
+        if (!req.isAuthenticated) return res.render('tweet/index', { title: 'SailsTwitter', user: null });
+        return res.render('tweet/index', { title: 'SailsTwitter', user: req.user});
     }
 };
 

@@ -6,9 +6,17 @@
  */
 
 module.exports = {
-
-  attributes: {
-
-  }
+    _config: {
+        rest: false
+    },
+    attributes: {
+        txt: {
+            type: 'string',
+            maxLength: 140
+        },
+        owner: {
+            model: 'user'
+        }
+    }
 };
 

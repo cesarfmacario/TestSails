@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var passport = require('passport');
+//var passport = require('passport');
 
 module.exports = {
 
@@ -15,6 +15,8 @@ module.exports = {
         rest: false
     },
     login: function(req, res) {
+
+        /*
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
                 return res.send({
@@ -24,14 +26,13 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                req.session.me = user.id
-                return res.redirect('/')
+                return res.redirect('/');
             });
-        })(req, res);
+        })(req, res);*/
     },
     logout: function(req, res) {
-        req.logout();
-        res.redirect('/login');
+        //req.logout();
+        res.redirect('/');
     }
 
 };

@@ -13,9 +13,6 @@ module.exports = {
     		});
       	});
     },
-    'new': function (req, res) {
-        res.view();
-    },
     create: function(req, res) {
         User.create(req.params.all(), function userCreated(err, user) {
 			if (err) {
@@ -37,6 +34,9 @@ module.exports = {
     },
     saveedit: function (req, res) {
         User.update({ id: req.param('id') }, req.params.all(), function userUpdated(err, user) {
+            console.log(req.params.all());
+            console.log(err);
+            console.log(user);
             if(err) return res.send({ err:err }, 500);
             if(!user) return res.send({ user: user }, 404)
             return res.redirect('/user')
