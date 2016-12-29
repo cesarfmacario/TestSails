@@ -5,22 +5,9 @@
             <h2>Editar usuario</h2>
         </div>
         <input type="hidden" name="id" value="<%= user.id %>">
-        <div class="form-group">
-            <label>Nombres:</label>
-            <input class="form-control" type="text" name="firstName" placeholder="Nombres" autofocus value="<%= user.firstName %>">
-        </div>
-        <div class="form-group">
-            <label>Apellidos:</label>
-            <input class="form-control" type="text" name="lastName" placeholder="Apellidos" value="<%= user.lastName %>">
-        </div>
-        <div class="form-group">
-            <label>Correo electrónico:</label>
-            <input class="form-control" type="email" name="email" placeholder="E-mail" value="<%= user.email %>">
-        </div>
-        <div class="form-group">
-            <label>Contraseña</label>
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
+        
+        <% include ./form-user %>
+
         <div class="form-container-segment">
             <input class="btn btn-default btn-form" type="submit" value="Guardar">
         </div>

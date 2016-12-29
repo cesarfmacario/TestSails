@@ -1,4 +1,10 @@
-var passport = require('passport'),
+module.exports = {
+  passport: {
+    userModelIdentity: 'user'
+  }
+}
+
+/*var passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 bcrypt = require('bcrypt');
 
@@ -36,4 +42,4 @@ passport.use(new LocalStrategy({
       });
     });
   }
-));
+));*/

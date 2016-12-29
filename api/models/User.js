@@ -8,11 +8,6 @@ var bcrypt = require('bcrypt');
 
 module.exports = {    
     attributes: {
-        id: {
-            type: 'integer',
-            autoIncrement: true,
-            primaryKey: true
-        },
         firstName: {
             type: 'string',
             maxLength: 100
@@ -26,6 +21,10 @@ module.exports = {
             required: true,
             unique: true
         },
+        username: {
+            type: 'string',
+            maxLength: 32
+        },
         password: {
             type: 'string',
             minLength: 6,
@@ -35,14 +34,16 @@ module.exports = {
             collection: 'tweet',
             via: 'owner'
         },
-
+        isAdmin: {
+            type: 'boolean'
+        },
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;
             return obj;
         }
     },
-    beforeCreate: function(user, cb) {
+    /*beforeCreate: function(user, cb) {
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(user.password, salt, function(err, hash) {
                 if (err) {
@@ -54,18 +55,5 @@ module.exports = {
                 }
             });
         });
-    },
-    beforeUpdate: function(user, cb) {
-        bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(user.password, salt, function(err, hash) {
-                if (err) {
-                    console.log(err);
-                    cb(err);
-                } else {
-                    user.password = hash;
-                    cb();
-                }
-            });
-        });
-    }
+    }*/
 };
