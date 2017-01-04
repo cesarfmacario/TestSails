@@ -20,19 +20,19 @@
 module.exports.policies = {
 
   '*': true,
-
+/*
   'TweetController': {
     '*': true
   },
 
   'UserController': {
-    /*index: 'isAuthenticated',
+    index: 'isAuthenticated',
     edit: 'isAuthenticated',
     saveedit: 'isAuthenticated',
-    destroy: 'isAuthenticated',*/
+    destroy: 'isAuthenticated',
     '*': true,
   },
-  
+  */
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *

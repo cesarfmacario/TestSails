@@ -23,7 +23,9 @@ module.exports = {
         },
         username: {
             type: 'string',
-            maxLength: 32
+            maxLength: 32,
+            required: true,
+            unique: true
         },
         password: {
             type: 'string',

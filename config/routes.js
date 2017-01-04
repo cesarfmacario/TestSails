@@ -31,7 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
+/*
   ///////////  MAIN - TWITTER ROUTES
   'GET /': 'TweetController.mainpage',
 
@@ -39,11 +39,13 @@ module.exports.routes = {
   'GET /login': { view: 'user/login' },
   'POST /login': 'UserController.login',
   'GET /logout': 'UserController.logout',
-
+*/
   ///////////  USER ROUTES
-  'GET /user/create': { view: 'user/new' },
-  'GET POST /user/edit': 'UserController.edit',
-  'POST /user/destroy': 'UserController.destroy'
+  'GET /api/user': 'UserController.readUsers',
+  'GET /api/user/:username': 'UserController.readUser',
+  'POST /api/user/create': 'UserController.create',
+  'POST /api/user/edit/:username': 'UserController.edit',
+  'POST /api/user/destroy/:username': 'UserController.destroy'
 
   /***************************************************************************
   *                                                                          *

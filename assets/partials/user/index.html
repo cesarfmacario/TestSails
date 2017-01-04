@@ -1,0 +1,33 @@
+<div class="sub-container">
+<h3>Tabla de usuarios</h3>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+          <th>Código</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Usuario</th>
+          <th>Correo electrónico</th>
+          <th>Admin</th>
+          <th></th>
+          <th>Acciones</th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.isAdmin}}</td>
+        <td><a href="#!/user/{{user.username}}" class="btn btn-sm btn-primary">Detalles</a></td>
+        <td><a ng-click="editUser(user.username)" class="btn btn-sm btn-warning">Editar</a></td>
+        <td><a ng-click="destroyUser(user.username)" class="btn btn-sm btn-danger">Eliminar</a></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <a href="#!/user/create" class="btn btn-md btn-primary">Crear Nuevo Usuario</a>
+</div>
