@@ -3,7 +3,8 @@ var app = angular.module("app", ["ngRoute", "app.controllers"]);
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "partials/tweet/index.html"
+            templateUrl: "partials/tweet/index.html",
+            controller: "IndexController"
         })
         .when("/user", {
             templateUrl: "partials/user/index.html",
@@ -13,11 +14,11 @@ app.config(["$routeProvider", function($routeProvider) {
             templateUrl: "partials/user/new.html",
             controller: "UserCreateCtrl"
         })
-        .when("/user/edit/:username", {
+        .when("/user/edit/:id", {
             templateUrl: "partials/user/edit.html",
             controller: "UserEditCtrl"
         })
-        .when("/user/destroy/:username", {
+        .when("/user/destroy/:id", {
             templateUrl: "partials/user/edit.html",
             controller: "UserEditCtrl"
         })

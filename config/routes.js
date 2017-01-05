@@ -42,10 +42,16 @@ module.exports.routes = {
 */
   ///////////  USER ROUTES
   'GET /api/user': 'UserController.readUsers',
-  'GET /api/user/:username': 'UserController.readUser',
+  'GET /api/user/:id': 'UserController.readUser',
   'POST /api/user/create': 'UserController.create',
-  'POST /api/user/edit/:username': 'UserController.edit',
-  'POST /api/user/destroy/:username': 'UserController.destroy'
+  'POST /api/user/edit/:id': 'UserController.edit',
+  'POST /api/user/destroy/:id': 'UserController.destroy',
+
+  /////////// TWEET ROUTES
+  'GET /api/tweet': 'TweetController.readTweets',
+  'GET /api/tweet/:id': 'TweetController.readTweet',
+  'POST /api/tweet/create': 'TweetController.create',
+
 
   /***************************************************************************
   *                                                                          *

@@ -1,4 +1,8 @@
 var $ = require("jquery")
 
 var headerHeight = $('.header').innerHeight();
-$('.container').css('padding-top', headerHeight+'px');
+$('.content').css('padding-top', headerHeight+'px');
+
+io.socket.on('userEdit', function onUserEditted(response) {
+    console.log(response);
+});

@@ -10,20 +10,27 @@ app.controller('UserController', ["$scope", "$location", "$routeParams", "UsersF
         console.log(reason);
         $scope.error = reason;
     };
-
-    UsersFactory.getUsers().then(onUsersComplete, onError);
-
-    $scope.editUser = function(username) {
-        $location.path('/user/edit/' + username);
+    $scope.editUser = function(id) {
+        $location.path('/user/edit/' + id);
+    };    
+    $scope.destroyUser = function(id) {
+        UsersFactory.destroyUser(id).catch(onError);
     };
+    var onListUsers = function() {
+        UsersFactory.getUsers().then(onUsersComplete, onError);
+    };   
 
-    var onDestroyUser = function(data) {
-        $location.path('/user');
-    };
-    $scope.destroyUser = function(username) {
-        UsersFactory.destroyUser(username).then(onDestroyUser, onError);
-        alert('User ' + username + ' has been deleted');
-    };
+    onListUsers();
+
+    var socket = io.socket;
+    var listener = function(eventName) {
+        socket.on(eventName, function(res) {
+            if(res.data) return onListUsers();
+        });
+    }
+    listener('userCreated');
+    listener('userEditted');
+    listener('userDestroyed');
 
 }]);
 
@@ -57,10 +64,56 @@ app.controller('UserEditCtrl', ["$scope", "$location", "$routeParams", "UsersFac
         console.log(reason);
     };
     $scope.saveUser = function() {
-        UsersFactory.editUser($scope.user).then(onEditUser, onError);
+        UsersFactory.editUser($scope.user).then(onEditUser).catch(onError);
     };
 
-    var username = $routeParams.username;
-    UsersFactory.getUser(username).then(onUserComplete, onError);
+    var id = $routeParams.id;
+    UsersFactory.getUser(id).then(onUserComplete, onError);
+
+}]);
+
+///////////////////////////////////////////////////////////////////////////////////
+
+app.controller('IndexController', ["$scope", "TweetFactory", function($scope, TweetFactory) {
+
+    var login = {
+      "id": "58659484fbbd5e5f48a229d7",
+      "firstName": "César Francisco",
+      "lastName": "Macario Ixcot",
+      "username": "cmchecha",
+      "email": "checha@checha.com",
+      "isAdmin": false
+    }
+    $scope.login = login;
+
+    var onTweetsComplete = function(data) {
+        var res = data;
+        $scope.tweets = data;
+    };
+    var onError = function(reason) {
+        console.log(reason);
+        $scope.error = reason;
+    };
+    $scope.createTweet = function() {
+        tweet = {
+            tweet: $scope.tweet,
+            user: $scope.login
+        }
+        TweetFactory.createTweet(tweet).then(onError);
+    };
+    var onListTweets = function() {
+        TweetFactory.getTweets().then(onTweetsComplete, onError);
+        
+    };
+
+    onListTweets();
+
+    var socket = io.socket;
+    var listener = function(eventName) {
+        socket.on(eventName, function(res) {
+            if(res.data) return onListUsers();
+        });
+    }
+    listener('tweetCreated');
 
 }]);
