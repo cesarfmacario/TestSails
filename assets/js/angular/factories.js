@@ -1,4 +1,4 @@
-var app = angular.module("app.factories", []);
+var app = angular.module("app");
 
 app.factory('UsersFactory', function($http)
 {

@@ -4,17 +4,17 @@ var cssFilesToInject = [
 ];
 
 var jsFilesToInject = [	
+  '/bower_components/jquery/dist/jquery.js',
   '/bower_components/bootstrap/dist/js/bootstrap.js',
-  '/bower_components/angular/angular.js',
-  '/bower_components/angular-route/angular-route.js',
   
   'js/dependencies/sails.io.js',
   'js/dependencies/**/*.js',
 
-  'js/*.js',
+  'js/angular-modal-service.js',
   'js/angular/app.js',
+  'js/angular/*Controller.js',
   'js/angular/factories.js',
-  'js/angular/*.js'
+  'js/*.js'
 ];
 
 var templateFilesToInject = [

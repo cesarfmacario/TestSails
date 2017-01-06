@@ -1,38 +1,38 @@
 <div class="sub-container">
-<h3>Tabla de usuarios</h3>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="table-responsive">
-      <table class='table table-striped'>
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Usuario</th>
-            <th>Correo electrónico</th>
-            <th>Admin</th>
-            <th></th>
-            <th>Acciones</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="user in users">
-            <td>{{user.id}}</td>
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.isAdmin}}</td>
-            <td><a href="#!/user/{{user.id}}" class="btn btn-sm btn-primary">Detalles</a></td>
-            <td><a ng-click="editUser(user.id)" class="btn btn-sm btn-warning">Editar</a></td>
-            <td><a ng-click="destroyUser(user.id)" class="btn btn-sm btn-danger">Eliminar</a></td>
-          </tr>
-        </tbody>
-      </table>
+  <h3>Tabla de usuarios</h3>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table class='table table-striped'>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Usuario</th>
+              <th>Correo electrónico</th>
+              <th>Admin</th>
+              <th></th>
+              <th>Acciones</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="us in users">
+              <td>{{us.id}}</td>
+              <td>{{us.firstName}}</td>
+              <td>{{us.lastName}}</td>
+              <td>{{us.username}}</td>
+              <td>{{us.email}}</td>
+              <td>{{us.isAdmin}}</td>
+              <td><a ng-click="viewUser(us.id)" class="btn btn-sm btn-primary">Detalles</a></td>
+              <td><a ng-click="editUser(us.id)" class="btn btn-sm btn-warning">Editar</a></td>
+              <td><a ng-click="destroyUser(us.id, us.username)" class="btn btn-sm btn-danger">Eliminar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<a href="#!/user/create" class="btn btn-md btn-primary">Crear Nuevo Usuario</a>
+  <a ng-click="createUser()" class="btn btn-md btn-primary">Crear Nuevo Usuario</a>
 </div>

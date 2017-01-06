@@ -9,15 +9,15 @@
   </div>
   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
     <div class="table-responsive">
-      <table class="table-stripped">
+      <table style="min-width: 100%" class="table table-striped">
         <thead>
           <tr>
             <th>Tweets anteriores</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="tw in tweets">
-            <td>{{ tw.user.username }} dice: {{ tw.tweet }}</td>
+          <tr class="tweet" ng-repeat="tw in tweets">
+            <td class="tweet">@{{ tw.user.username }}: {{ tw.tweet }}</td>
           </tr>
         </tbody>
       </table>
